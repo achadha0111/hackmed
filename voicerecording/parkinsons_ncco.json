@@ -1,0 +1,20 @@
+[
+    {
+        "action": "talk",
+        "text": "You have reached the Mobile Parkinson's Diagnostic Service. Please say the vowel O continuously for 3 seconds after the beep ",
+        "voiceName": "Emma"
+    },
+    {
+        "action": "record",
+        "eventUrl": [
+            "https://7bab0845.ngrok.io/recordvoice"
+        ],
+        "endOnSilence": "3",
+        "endOnKey" : "#",
+        "beepStart": "true"
+    },
+    {
+        "action": "talk",
+        "text": "Thank you. Your diagnostic information will be sent to your phone and your G P shortly."
+    }
+]
