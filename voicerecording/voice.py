@@ -15,7 +15,7 @@ def inbound():
         for key, value in nexmo_response.items() :
             if (key == 'recording_url'):
                 print (value)
-                getFile(value, 'patient_audio_recording.mp3')
+                getFile(value, '../rec_1s.mp3')
         print ('Calling classifier', file=sys.stderr)
         os.system('python3 ../classifier/classifier.py')
        

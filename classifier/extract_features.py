@@ -10,8 +10,7 @@ def extract_features():
 	arr = str(output).split("\\n")
 	arr[0] = arr[0].replace("b'", "")
 	del arr[-1]
-	arr.append(0)
-	print ('Extracted features')
+	# print ('Extracted features')
 
 	user_arr = np.array(arr).reshape(1, len(arr)) 
 	return user_arr
