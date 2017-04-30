@@ -18,8 +18,10 @@ def inbound():
         nexmo_response = request.get_json()
         for key, value in nexmo_response.items() :
             if (key == 'recording_url'):
-                getFile(value, 'patient_audio_recording.mp3')
-
+                getFile(value, 'patient_audio_recording.wav')
+        print ('Calling classifier', file=sys.stderr)
+        os.system('python3 ../classifier/classifier.py')
+       
     except Exception as e:
         print (e)
 
@@ -38,6 +40,7 @@ def requestNCCO():
                     "eventUrl": [
                         "https://7bab0845.ngrok.io/recordvoice"
                     ],
+                    "format": "wav",
                     "endOnSilence": "3",
                     "endOnKey" : "#",
                     "beepStart": "true"
@@ -65,6 +68,7 @@ def getFile(url, filename):
     if response.status_code ==200:
         with open(filename, 'wb') as f:
             f.write(response.content)
+            print ('Wrote file')
     else:
         print (response.content)
 
