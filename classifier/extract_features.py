@@ -5,12 +5,13 @@ import numpy as np
 def extract_features():
 	# sp.call(['/Applications/Praat.app/Contents/MacOS/Praat', '--run', 'script.praat'])
 	# print(sp.check_output([]))
-	p = Popen(['/Applications/Praat.app/Contents/MacOS/Praat', '--run', 'script.praat'], stdout=subprocess.PIPE)
+	p = Popen(['/Applications/Praat.app/Contents/MacOS/Praat', '--run', '../script.praat'], stdout=subprocess.PIPE)
 	output = p.stdout.read()
 	arr = str(output).split("\\n")
 	arr[0] = arr[0].replace("b'", "")
 	del arr[-1]
 	arr.append(0)
+	print ('Extracted features')
 	return np.array(arr).reshape(1, len(arr))
 	# command = ""
 	# for i, value in enumerate(arr):

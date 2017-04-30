@@ -1,4 +1,4 @@
-sound$ = "rec_1s"
+sound$ = "voicerecording/patient_audio_recording"
 sound = Read from file: sound$ + ".wav"
 
 pitch = To Pitch (cc)... 0.01 50 15 no 0.03 0.45 0.01 0.35 0.14 300
