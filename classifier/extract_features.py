@@ -12,9 +12,10 @@ def extract_features():
 	del arr[-1]
 	arr.append(0)
 	print ('Extracted features')
+
 	user_arr = np.array(arr).reshape(1, len(arr)) 
-	print ('Array shape', user_arr.shape)
 	return user_arr
+
 	# command = ""
 	# for i, value in enumerate(arr):
 	# 	if i == len(arr)-1:
