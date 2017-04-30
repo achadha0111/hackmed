@@ -5,20 +5,17 @@ import nexmo
 import sys
 import requests
 
-#db62889d
-#3b06d19d574b099d
-#60315a7f-fb0b-4046-a82e-70668ca83e1a
-
 app = Flask(__name__)
 
 @app.route('/recordvoice', methods=['POST'])
 def inbound():
-    print ('')
+    print ('something')
     try:
         nexmo_response = request.get_json()
         for key, value in nexmo_response.items() :
             if (key == 'recording_url'):
-                getFile(value, 'patient_audio_recording.wav')
+                print (value)
+                getFile(value, 'patient_audio_recording.mp3')
         print ('Calling classifier', file=sys.stderr)
         os.system('python3 ../classifier/classifier.py')
        
@@ -38,7 +35,7 @@ def requestNCCO():
                 {
                     "action": "record",
                     "eventUrl": [
-                        "https://7bab0845.ngrok.io/recordvoice"
+                        "https://802f0353.ngrok.io/recordvoice"
                     ],
                     "format": "wav",
                     "endOnSilence": "3",
@@ -59,14 +56,15 @@ def test():
     return Response('It works')
 
 def getFile(url, filename):
+    print ('GET FILE CALLED')
     fp = open('private.key')
     contents = fp.read()
-    client = nexmo.Client(application_id='ede20e77-cb73-4829-a6b9-576af0cc73b1', private_key=contents,key='db62889d', secret='3b06d19d574b099d')
+    client = nexmo.Client(application_id='45214214-8f58-4625-979f-cc6b3d8498d9', private_key=contents,key='a7c77f17', secret='14200a2d041b524c')
     headers =  client._Client__headers()
     headers['Content-Type'] = 'application/json'
     response = requests.get(url, headers=headers)
     if response.status_code ==200:
-        with open(filename, 'wb') as f:
+        with open(filename, 'w+') as f:
             f.write(response.content)
             print ('Wrote file')
     else:
