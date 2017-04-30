@@ -19,10 +19,10 @@ writeInfoLine: extractNumber(voiceReport$, "Jitter (ddp):")
 
 writeInfoLine: extractNumber(voiceReport$, "Shimmer (local):")
 writeInfoLine: extractNumber(voiceReport$, "Shimmer (local, dB):")
+writeInfoLine: extractNumber(voiceReport$, "Shimmer (apq3):")
 writeInfoLine: extractNumber(voiceReport$, "Shimmer (apq5):")
 writeInfoLine: extractNumber(voiceReport$, "Shimmer (apq11):")
 writeInfoLine: extractNumber(voiceReport$, "Shimmer (dda):")
-
 
 writeInfoLine: extractNumber(voiceReport$, "Mean autocorrelation:")
 writeInfoLine: extractNumber(voiceReport$, "Mean noise-to-harmonics ratio:")

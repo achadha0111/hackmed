@@ -25,13 +25,21 @@ print("Loaded model from disk")
 model.compile(loss='binary_crossentropy', optimizer='rmsprop', metrics=['accuracy'])
 # score = model.evaluate(X_test, Y_test, verbose=1)
 
+np.set_printoptions(precision=15)
+np.set_printoptions(linewidth=232)
+
 def classify():
-	feature_vector_custom = extract_features()
+
 	feature_vector = np.array([0.1350000,0.0000073,0.0670000,0.0780000,0.2020000,2.0330000,0.1780000,1.0740000,1.3360000,1.5760000,3.2230000,0.9960500,0.0039670,24.2040000,186.2660000,186.3000000,0.8590000,184.5020000,187.8800000,183.0000000,182.0000000,0.0053680,0.0000255,0.0000000,0.0000000]).reshape(1,25)
-	print(feature_vector)
-	print(feature_vector_custom)
+	feature_vector_custom = extract_features()
+
+	for i in feature_vector:
+		print(i)
+	for j in feature_vector_custom:
+		print(j)
+		
 	# returns probability of parkinsons
-	print("Our extracted feature prediction")
+	# print("Our extracted feature prediction")
 	print(model.predict(feature_vector_custom))
 
 classify()

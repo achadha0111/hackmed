@@ -10,7 +10,9 @@ def extract_features():
 	arr = str(output).split("\\n")
 	arr[0] = arr[0].replace("b'", "")
 	del arr[-1]
-	arr.append(0)
+	for a in arr:
+		if a == "--undefined--":
+			a = 0
 	return np.array(arr).reshape(1, len(arr))
 	# command = ""
 	# for i, value in enumerate(arr):
